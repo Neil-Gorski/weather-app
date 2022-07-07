@@ -1,6 +1,6 @@
 # Weather APP
 
-Live APP : [Click here!](https://neil-gorski.github.io/weather-app/?target=blank)
+Live APP : [Click here!](https://neil-gorski.github.io/weather-app/)
 
 Create weather app using
 
