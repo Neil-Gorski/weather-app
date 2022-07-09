@@ -20,4 +20,15 @@
 		@include fluid-type(300px, 1200px, 30px, 66px);
 		margin: 0 0 30px 0;
 	}
+	&__city {
+		padding: 10px;
+		text-align: center;
+		outline: none;
+		max-width: 600px;
+		min-width: 300px;
+		width: 100%;
+		font-size: 18px;
+		border: 0;
+		border-radius: 10px;
+	}
 }

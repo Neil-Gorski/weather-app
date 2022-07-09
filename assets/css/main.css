@@ -53,3 +53,14 @@ h6 {
   font-size: clamp(30px, 18px + 4vw, 66px);
   margin: 0 0 30px 0;
 }
+.weather__city {
+  padding: 10px;
+  text-align: center;
+  outline: none;
+  max-width: 600px;
+  min-width: 300px;
+  width: 100%;
+  font-size: 18px;
+  border: 0;
+  border-radius: 10px;
+}
