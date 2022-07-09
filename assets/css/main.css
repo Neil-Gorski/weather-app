@@ -70,7 +70,7 @@ h6 {
   display: -ms-flexbox;
   display: flex;
   padding: 15px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 15px;
   color: rgb(255, 255, 255);
 }
@@ -97,7 +97,7 @@ h6 {
   display: -ms-flexbox;
   display: flex;
   padding: 15px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 15px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -115,6 +115,18 @@ h6 {
 }
 .weather__avg {
   text-align: center;
+}
+.weather__loader {
+  display: none;
+}
+.weather__error {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px 0 0 0;
+  font-size: 1.5em;
+  color: #fff;
+  background-color: rgb(255, 0, 0);
+  font-weight: 700;
 }
 
 .lds-ellipsis {

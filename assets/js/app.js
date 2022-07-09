@@ -2,6 +2,9 @@ let weatherForm = document.querySelector(".weather__form")
 let weatherCity = document.querySelector(".weather__city")
 let weatherApi = document.querySelector(".weather__api")
 let APIURL = "https://api.weatherapi.com/v1/forecast.json?key=885c4a75899c40fbbc474057220907&aqi=yes&days=4&q="
+let weatherLoader = document.querySelector(".weather__loader")
+let showLoaderTime = 500
+
 
 weatherForm.addEventListener("submit", (event) => {
     event.preventDefault()
@@ -13,12 +16,18 @@ weatherForm.addEventListener("submit", (event) => {
         weatherApi.innerHTML = ""
         return false
     }
-
+    showLoader()
     weatherCity.style.border= "none"
     let fullAPIURL = APIURL + city
     
     fetch(fullAPIURL)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok){
+                throw Error(response.json())
+            }
+            return response.json()
+        
+        })
         .then(data => {
             hideLoader()
             let view = ''
@@ -55,7 +64,34 @@ weatherForm.addEventListener("submit", (event) => {
             })
 
             view += `</div>`
-            weatherApi.innerHTML = view
+            setTimeout(() => {
+                weatherApi.innerHTML = view
+            },showLoaderTime);
             
+           
+    }).catch(error=> {
+        hideLoader()
+        setTimeout(() => {
+            weatherApi.innerHTML= `<div class="weather__error"><u>City not found or try it again leter.</u></div>`
+        },showLoaderTime);
+        
     })
+})
+
+let showLoader = () => {
+    weatherLoader.style.display = "block"
+    clearApiData()
+}
+
+let hideLoader = () => {
+    setTimeout(() => {
+        weatherLoader.style.display = "none"
+    },showLoaderTime)
+}
+
+let clearApiData = () => {
+    weatherApi.innerHTML = ""
+}
+weatherCity.addEventListener("keyup", () => {
+    if(weatherCity.value === "") clearApiData()
 })
