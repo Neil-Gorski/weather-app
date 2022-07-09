@@ -20,6 +20,7 @@ weatherForm.addEventListener("submit", (event) => {
     fetch(fullAPIURL)
         .then(response => response.json())
         .then(data => {
+            hideLoader()
             let view = ''
             view += `<div class="weather__mainInfo">`
             view += `<div class="weather__temp">
@@ -52,9 +53,6 @@ weatherForm.addEventListener("submit", (event) => {
                 view += `<div class="weather__avg">${day.day.avgtemp_c} &deg;C</div>`
                 view += `</div>`
             })
-
-
-
 
             view += `</div>`
             weatherApi.innerHTML = view
